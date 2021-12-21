@@ -5,7 +5,7 @@ This method is an alternative to using the original DropOut.exe program provided
 
 ![alt text](https://github.com/MattTavares/senderCAMM-3/blob/main/Camm3-Sender-01.png?raw=true)
 
-## Requirments
+## Requirements
 * A Windows 10 machine with Node-RED installed 
 * The node-red-node-serialport and node-red-contrib-simple-message-queue nodes added to the NodeRed pallete
 * Native DB-9 Serial Port with working CTS/RTS Hardware Flow Control
