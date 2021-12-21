@@ -1,5 +1,5 @@
 # senderCAMM-3
-## About the Project
+## About
 This is a Proof of Concept for sending PRN CAMM-GL cut files to a CAMM-3 PNC-3000 CNC Mill from Node-RED.
 This method is an alternative to using the original DropOut.exe program provided by Roland and frees you from running your mill off Windows XP or earlier. 
 
