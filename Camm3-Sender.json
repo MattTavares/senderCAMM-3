@@ -1,0 +1,617 @@
+[
+    {
+        "id": "90230d3169c55c7f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bb41ba26.cc13a",
+        "type": "serial-port",
+        "serialport": "COM15",
+        "serialbaud": "38400",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "3",
+        "bin": "bin",
+        "out": "time",
+        "addchar": false
+    },
+    {
+        "id": "ac94254a.4b61b",
+        "type": "serial-port",
+        "serialport": "COM13",
+        "serialbaud": "38400",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "2",
+        "newline": "3",
+        "bin": "bin",
+        "out": "time",
+        "addchar": false
+    },
+    {
+        "id": "c7cfe61b.be1918",
+        "type": "serial-port",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "64b8881d.9f4298",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "blue",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Test Rig Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "true",
+            "lockMenu": "true",
+            "allowTempTheme": "none",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "c743f710.1276b8",
+        "type": "ui_tab",
+        "name": "Overview",
+        "icon": "fa-line-chart",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "720b10f3.5524b",
+        "type": "ui_group",
+        "name": "Sensors",
+        "tab": "c743f710.1276b8",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": true
+    },
+    {
+        "id": "a56eab48.f82d58",
+        "type": "ui_tab",
+        "name": "Setup Test",
+        "icon": "fa-check-square",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "320510e2.086b1",
+        "type": "ui_group",
+        "name": "Setup Test",
+        "tab": "a56eab48.f82d58",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false
+    },
+    {
+        "id": "30c3047f.9cde9c",
+        "type": "ui_group",
+        "name": "Average",
+        "tab": "4945cd2b.1984f4",
+        "order": 1,
+        "disp": true,
+        "width": "9",
+        "collapse": false
+    },
+    {
+        "id": "4945cd2b.1984f4",
+        "type": "ui_tab",
+        "name": "Average",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "85cec38d2c79b498",
+        "type": "serial-port",
+        "serialport": "COM1",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "0x0D",
+        "bin": "false",
+        "out": "char",
+        "addchar": "0x0D",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "49a770c0cacde17a",
+        "type": "file in",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 320,
+        "y": 100,
+        "wires": [
+            [
+                "660382701228880e"
+            ]
+        ]
+    },
+    {
+        "id": "b2d01586a445c305",
+        "type": "inject",
+        "z": "90230d3169c55c7f",
+        "name": "Trigger Milling Start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "filename",
+                "v": "C:\\out\\1001.prn",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "49a770c0cacde17a"
+            ]
+        ]
+    },
+    {
+        "id": "660382701228880e",
+        "type": "split",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 450,
+        "y": 100,
+        "wires": [
+            [
+                "f947e095a0096e15"
+            ]
+        ]
+    },
+    {
+        "id": "7a946daf94da6db5",
+        "type": "serial request",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "serial": "85cec38d2c79b498",
+        "x": 1070,
+        "y": 140,
+        "wires": [
+            [
+                "557b0432f1795868"
+            ]
+        ]
+    },
+    {
+        "id": "a756369020004b14",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Add Buffer Check to Command End",
+        "func": "var buf1 = Buffer.from(msg.payload);\nvar buf2 = new Buffer(\"1B2E42\",\"hex\");\nmsg.payload = Buffer.concat([buf1,buf2]).toString();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 140,
+        "wires": [
+            [
+                "7a946daf94da6db5"
+            ]
+        ]
+    },
+    {
+        "id": "e8f59ed210473628",
+        "type": "switch",
+        "z": "90230d3169c55c7f",
+        "name": "Buffer State",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "3000",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "3000",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "3763a72ab9c38f57"
+            ],
+            [
+                "cd2dc442b1d42384"
+            ]
+        ]
+    },
+    {
+        "id": "1c5a2673f5982b84",
+        "type": "debug",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1330,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cd2dc442b1d42384",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Low",
+        "func": "msg.buffer = \"low\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 280,
+        "wires": [
+            [
+                "c50bb091015b2895"
+            ]
+        ]
+    },
+    {
+        "id": "3763a72ab9c38f57",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "High",
+        "func": "msg.buffer = \"high\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "97178dcd750412b3"
+            ]
+        ]
+    },
+    {
+        "id": "557b0432f1795868",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Parse Buffer Remaining",
+        "func": "var out = Number(parseInt(msg.payload));\nmsg.payload = out;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 140,
+        "wires": [
+            [
+                "1c5a2673f5982b84",
+                "974cff83a219f73a"
+            ]
+        ]
+    },
+    {
+        "id": "c50bb091015b2895",
+        "type": "trigger",
+        "z": "90230d3169c55c7f",
+        "name": "Wait 5s",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "af33f281ef2af00c"
+            ]
+        ]
+    },
+    {
+        "id": "af33f281ef2af00c",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Check Buffer",
+        "func": "var buf1 = new Buffer(\"1B2E42\",\"hex\");\nmsg.payload = Buffer.concat([buf1]).toString();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 280,
+        "wires": [
+            [
+                "7a946daf94da6db5"
+            ]
+        ]
+    },
+    {
+        "id": "f947e095a0096e15",
+        "type": "simple-queue",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "firstMessageBypass": true,
+        "bypassInterval": "0",
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "a756369020004b14"
+            ]
+        ]
+    },
+    {
+        "id": "a0f5b88675c10fdd",
+        "type": "inject",
+        "z": "90230d3169c55c7f",
+        "name": "Cancel Remaining Commands",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "3967d1c8c0a896ae"
+            ]
+        ]
+    },
+    {
+        "id": "3967d1c8c0a896ae",
+        "type": "change",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "reset",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 160,
+        "wires": [
+            [
+                "f947e095a0096e15"
+            ]
+        ]
+    },
+    {
+        "id": "97178dcd750412b3",
+        "type": "change",
+        "z": "90230d3169c55c7f",
+        "name": "Trigger Next Line",
+        "rules": [
+            {
+                "t": "set",
+                "p": "trigger",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "f947e095a0096e15"
+            ]
+        ]
+    },
+    {
+        "id": "92a549904f53cdd2",
+        "type": "comment",
+        "z": "90230d3169c55c7f",
+        "name": "Roland CAMM-3 PNC3000 Sender Hack",
+        "info": "",
+        "x": 180,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "974cff83a219f73a",
+        "type": "link out",
+        "z": "90230d3169c55c7f",
+        "name": "BufferResonse",
+        "mode": "link",
+        "links": [
+            "953a638dad6fca9c"
+        ],
+        "x": 1395,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "953a638dad6fca9c",
+        "type": "link in",
+        "z": "90230d3169c55c7f",
+        "name": "BufferResponse",
+        "links": [
+            "974cff83a219f73a"
+        ],
+        "x": 55,
+        "y": 260,
+        "wires": [
+            [
+                "e8f59ed210473628"
+            ]
+        ]
+    }
+]
