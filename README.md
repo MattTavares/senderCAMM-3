@@ -3,6 +3,8 @@
 This is a Proof of Concept for sending PRN CAMM-GL cut files to a CAMM-3 PNC-3000 CNC Mill from Node-RED.
 This method is an alternative to using the original DropOut.exe program provided by Roland and frees you from running your mill off Windows XP or earlier. 
 
+![alt text](https://github.com/MattTavares/senderCAMM-3/blob/main/Camm3-Sender-01.png?raw=true)
+
 ## Requirments
 * A Windows 10 machine with Node-RED installed 
 * The node-red-node-serialport and node-red-contrib-simple-message-queue nodes added to the NodeRed pallete
