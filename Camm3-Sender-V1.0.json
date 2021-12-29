@@ -1,0 +1,1404 @@
+[
+    {
+        "id": "90230d3169c55c7f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "64b8881d.9f4298",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "light-green",
+                "accents": "blue",
+                "warn": "red",
+                "background": "blue-grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "CAMM-3 PNC3000 Milling Control",
+            "hideToolbar": "false",
+            "allowSwipe": "true",
+            "lockMenu": "true",
+            "allowTempTheme": "none",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "a56eab48.f82d58",
+        "type": "ui_tab",
+        "name": "Milling Operation",
+        "icon": "fa-check-square",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "320510e2.086b1",
+        "type": "ui_group",
+        "name": "Milling Operation",
+        "tab": "a56eab48.f82d58",
+        "order": 1,
+        "disp": false,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "85cec38d2c79b498",
+        "type": "serial-port",
+        "serialport": "COM1",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "0x0D",
+        "bin": "false",
+        "out": "char",
+        "addchar": "0x0D",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "92a549904f53cdd2",
+        "type": "comment",
+        "z": "90230d3169c55c7f",
+        "name": "Roland CAMM-3 PNC3000 Sender Hack V2",
+        "info": "",
+        "x": 310,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e3bbb234d4b76c19",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Return Status Code",
+        "func": "var buf1 = new Buffer(\"0D5E4F533B0D0A\",\"hex\");\nmsg.payload = Buffer.concat([buf1]).toString();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "ae888af9c988c187"
+            ]
+        ]
+    },
+    {
+        "id": "c435e41eae6bcda2",
+        "type": "ui_upload",
+        "z": "90230d3169c55c7f",
+        "group": "320510e2.086b1",
+        "title": "Upload PRN Milling File",
+        "name": "Upload PRN Milling File",
+        "order": 11,
+        "width": 12,
+        "height": 4,
+        "chunk": 256,
+        "transfer": "text",
+        "x": 730,
+        "y": 300,
+        "wires": [
+            [
+                "9d1dd4bb1ed9e880"
+            ]
+        ]
+    },
+    {
+        "id": "9d1dd4bb1ed9e880",
+        "type": "chunks-to-lines",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "nbLines": 1,
+        "linesFormat": "text",
+        "decoder": "Windows-1252",
+        "x": 960,
+        "y": 300,
+        "wires": [
+            [
+                "337b06ff3b54579d"
+            ]
+        ]
+    },
+    {
+        "id": "8ccc19dcc2df9348",
+        "type": "inject",
+        "z": "90230d3169c55c7f",
+        "name": "Force Next Line",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 520,
+        "y": 340,
+        "wires": [
+            [
+                "1cce3b8f43dd0f22"
+            ]
+        ]
+    },
+    {
+        "id": "3e840e2c21a3ca3c",
+        "type": "switch",
+        "z": "90230d3169c55c7f",
+        "name": "Routing",
+        "property": "routing",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BufferReturn",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "InfoReturn",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1760,
+        "y": 280,
+        "wires": [
+            [
+                "17413fdc75fd1b07"
+            ],
+            [
+                "34f1b01b1dc065b1",
+                "436d8be1ce161f64"
+            ]
+        ]
+    },
+    {
+        "id": "4d8d8f554934266f",
+        "type": "serial request",
+        "z": "90230d3169c55c7f",
+        "name": "CAMM-3 Serial Port",
+        "serial": "85cec38d2c79b498",
+        "x": 1540,
+        "y": 280,
+        "wires": [
+            [
+                "3e840e2c21a3ca3c",
+                "3e8cece58f120422"
+            ]
+        ]
+    },
+    {
+        "id": "337b06ff3b54579d",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Add Buffer Check to Command End",
+        "func": "var buf1 = Buffer.from(msg.payload);\nvar buf2 = new Buffer(\"0D1B2E423B0D\",\"hex\");\nmsg.payload = Buffer.concat([buf1,buf2]).toString();\nmsg.routing = \"BufferReturn\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 300,
+        "wires": [
+            [
+                "4d8d8f554934266f",
+                "d0746cfc1139e2e2"
+            ]
+        ]
+    },
+    {
+        "id": "1cce3b8f43dd0f22",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Buffer High: Next Line",
+        "func": "return { tick: true };",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 340,
+        "wires": [
+            [
+                "9d1dd4bb1ed9e880"
+            ]
+        ]
+    },
+    {
+        "id": "3a18417535a8d64c",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Parse Buffer Remaining",
+        "func": "var out = Number(parseInt(msg.payload));\nmsg.payload = out;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 380,
+        "wires": [
+            [
+                "1e7daf4448c6e6fd",
+                "4d2ef10c4eb6f0c2",
+                "86ce4724cfd3cd74"
+            ]
+        ]
+    },
+    {
+        "id": "1e7daf4448c6e6fd",
+        "type": "ui_gauge",
+        "z": "90230d3169c55c7f",
+        "d": true,
+        "name": "Buffer Bytes",
+        "group": "320510e2.086b1",
+        "order": 17,
+        "width": 5,
+        "height": 5,
+        "gtype": "donut",
+        "title": "Buffer Bytes",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "5120",
+        "colors": [
+            "#e30000",
+            "#e6e600",
+            "#38ca38"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 550,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4d2ef10c4eb6f0c2",
+        "type": "switch",
+        "z": "90230d3169c55c7f",
+        "name": "Buffer State",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "1600",
+                "vt": "num"
+            },
+            {
+                "t": "lt",
+                "v": "1600",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 380,
+        "wires": [
+            [
+                "1cce3b8f43dd0f22"
+            ],
+            [
+                "0497875808b122a6"
+            ]
+        ]
+    },
+    {
+        "id": "0497875808b122a6",
+        "type": "trigger",
+        "z": "90230d3169c55c7f",
+        "name": "Buffer Low: Wait 1s",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "1",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1010,
+        "y": 420,
+        "wires": [
+            [
+                "34f1b01b1dc065b1"
+            ]
+        ]
+    },
+    {
+        "id": "34f1b01b1dc065b1",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Check Buffer Command",
+        "func": "var buf1 = new Buffer(\"1B2E42\",\"hex\");\nmsg.payload = Buffer.concat([buf1]).toString();\nmsg.routing = \"BufferReturn\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 360,
+        "wires": [
+            [
+                "4d8d8f554934266f",
+                "d0746cfc1139e2e2"
+            ]
+        ]
+    },
+    {
+        "id": "2ae71fb628dea1bc",
+        "type": "inject",
+        "z": "90230d3169c55c7f",
+        "name": "Manual Buffer Check",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 1000,
+        "y": 380,
+        "wires": [
+            [
+                "34f1b01b1dc065b1"
+            ]
+        ]
+    },
+    {
+        "id": "17413fdc75fd1b07",
+        "type": "link out",
+        "z": "90230d3169c55c7f",
+        "name": "BufferResponse",
+        "mode": "link",
+        "links": [
+            "961cb8f35f066164"
+        ],
+        "x": 1895,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "961cb8f35f066164",
+        "type": "link in",
+        "z": "90230d3169c55c7f",
+        "name": "BufferResponse",
+        "links": [
+            "17413fdc75fd1b07"
+        ],
+        "x": 155,
+        "y": 380,
+        "wires": [
+            [
+                "3a18417535a8d64c"
+            ]
+        ]
+    },
+    {
+        "id": "925791cb24344062",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Return Current X,Y,Z Pos [O;]",
+        "func": "//output coordinates command\n//O;\n\nvar buf1 = new Buffer(\"0D4F3B0D\",\"hex\");\nmsg.payload = Buffer.concat([buf1]).toString();\nmsg.routing = \"InfoReturn\";\nmsg.command = \"O\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 640,
+        "wires": [
+            [
+                "ae888af9c988c187"
+            ]
+        ]
+    },
+    {
+        "id": "1803d9b2b762159a",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Return Work Window 0,0,X,Y [^OW;]",
+        "func": "//Return Window Command\n//^OW;\n\nvar buf1 = new Buffer(\"0D5E4F573B0D\",\"hex\");\nmsg.payload = Buffer.concat([buf1]).toString();\nmsg.routing = \"InfoReturn\";\nmsg.command = \"^OW\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 560,
+        "wires": [
+            [
+                "ae888af9c988c187"
+            ]
+        ]
+    },
+    {
+        "id": "936c1668cc99df19",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Return Current X,Y Pos [^OA]",
+        "func": "//^OA;\nvar buf1 = new Buffer(\"0D5E4F413B0D\",\"hex\");\nmsg.payload = Buffer.concat([buf1]).toString();\nmsg.routing = \"InfoReturn\";\nmsg.command = \"^OA\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 680,
+        "wires": [
+            [
+                "ae888af9c988c187"
+            ]
+        ]
+    },
+    {
+        "id": "c4c4d3bd3a0bd8ea",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Return Commanded X,Y Pos [^OC;]",
+        "func": "//^OC;\nvar buf1 = new Buffer(\"0D5E4F433B0D\",\"hex\");\nmsg.payload = Buffer.concat([buf1]).toString();\nmsg.routing = \"InfoReturn\";\nmsg.command = \"^OC\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 720,
+        "wires": [
+            [
+                "ae888af9c988c187"
+            ]
+        ]
+    },
+    {
+        "id": "e25d7a324fc9d66e",
+        "type": "inject",
+        "z": "90230d3169c55c7f",
+        "name": "Manual Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3.5",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 240,
+        "y": 560,
+        "wires": [
+            [
+                "1803d9b2b762159a"
+            ]
+        ]
+    },
+    {
+        "id": "0f0a33e2897162ab",
+        "type": "inject",
+        "z": "90230d3169c55c7f",
+        "name": "Manual Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "4",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 260,
+        "y": 640,
+        "wires": [
+            [
+                "925791cb24344062"
+            ]
+        ]
+    },
+    {
+        "id": "3c1fae9020a1d208",
+        "type": "inject",
+        "z": "90230d3169c55c7f",
+        "name": "Manual Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 260,
+        "y": 680,
+        "wires": [
+            [
+                "936c1668cc99df19"
+            ]
+        ]
+    },
+    {
+        "id": "2c2f010147edec48",
+        "type": "inject",
+        "z": "90230d3169c55c7f",
+        "name": "Manual Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 260,
+        "y": 720,
+        "wires": [
+            [
+                "c4c4d3bd3a0bd8ea"
+            ]
+        ]
+    },
+    {
+        "id": "46b3976bf66312e0",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Info Returned Routing Flag",
+        "func": "msg.routing = \"InfoReturn\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 260,
+        "wires": [
+            [
+                "4d8d8f554934266f",
+                "d0746cfc1139e2e2"
+            ]
+        ]
+    },
+    {
+        "id": "436d8be1ce161f64",
+        "type": "switch",
+        "z": "90230d3169c55c7f",
+        "name": "Resonse Routing",
+        "property": "command",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "O",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "^OW",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "^OA",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "^OC",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 1990,
+        "y": 320,
+        "wires": [
+            [
+                "c5b7f2ebb79afc92"
+            ],
+            [
+                "4adb6d1319a9c0da"
+            ],
+            [
+                "fd37da852e408964"
+            ],
+            [
+                "fd37da852e408964"
+            ]
+        ]
+    },
+    {
+        "id": "579b32e31baa79fd",
+        "type": "comment",
+        "z": "90230d3169c55c7f",
+        "name": "Info Return Commands",
+        "info": "",
+        "x": 260,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ae888af9c988c187",
+        "type": "link out",
+        "z": "90230d3169c55c7f",
+        "name": "InfoReturn",
+        "mode": "link",
+        "links": [
+            "331c05568b4da7b2"
+        ],
+        "x": 765,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "331c05568b4da7b2",
+        "type": "link in",
+        "z": "90230d3169c55c7f",
+        "name": "InfoReturn",
+        "links": [
+            "ae888af9c988c187"
+        ],
+        "x": 1095,
+        "y": 260,
+        "wires": [
+            [
+                "46b3976bf66312e0"
+            ]
+        ]
+    },
+    {
+        "id": "c5b7f2ebb79afc92",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Parse \"X,Y,Z\"",
+        "func": "let posXYZ = msg.payload.replace(/(\\r\\n|\\n|\\r)/gm, \"\");\nlet pos = posXYZ.split(',');\nlet posX = {payload: Number(parseInt(pos[0]))};\nlet posY = {payload: Number(parseInt(pos[1]))};\nlet posZ = {payload: Number(parseInt(pos[2]))};\n\nreturn [posX, posY, posZ]",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 300,
+        "wires": [
+            [
+                "ddb078442c41efd2"
+            ],
+            [
+                "dfca62c91ff630ad"
+            ],
+            [
+                "3bc8994ce6d02f3d"
+            ]
+        ]
+    },
+    {
+        "id": "dfca62c91ff630ad",
+        "type": "ui_text",
+        "z": "90230d3169c55c7f",
+        "group": "320510e2.086b1",
+        "order": 6,
+        "width": 2,
+        "height": 2,
+        "name": "Returned Y Position",
+        "label": "Y",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 2480,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "3bc8994ce6d02f3d",
+        "type": "ui_text",
+        "z": "90230d3169c55c7f",
+        "group": "320510e2.086b1",
+        "order": 7,
+        "width": 2,
+        "height": 2,
+        "name": "Returned Z Position",
+        "label": "Z",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 2480,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fd37da852e408964",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Parse \"X,Y,0\"",
+        "func": "let posXYZ = msg.payload.replace(/(\\r\\n|\\n|\\r)/gm, \"\");\nlet pos = posXYZ.split(',');\nlet posX = {payload: Number(parseInt(pos[0]))};\nlet posY = {payload: Number(parseInt(pos[1]))};\nlet posZ = {payload: Number(parseInt(pos[2]))};\n\nreturn [posX, posY]",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2230,
+        "y": 420,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4adb6d1319a9c0da",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Parse \"0,0,X,Y\"",
+        "func": "let posXYZ = msg.payload.replace(/(\\r\\n|\\n|\\r)/gm, \"\");\nlet pos = posXYZ.split(',');\nlet posX = {payload: Number(parseInt(pos[2]))};\nlet posY = {payload: Number(parseInt(pos[3]))};\n\nreturn [posX, posY]",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2240,
+        "y": 360,
+        "wires": [
+            [
+                "bf6216a6aa57caa0"
+            ],
+            [
+                "ecef0ed5ee1bca84"
+            ]
+        ]
+    },
+    {
+        "id": "bf6216a6aa57caa0",
+        "type": "ui_text",
+        "z": "90230d3169c55c7f",
+        "group": "320510e2.086b1",
+        "order": 1,
+        "width": 2,
+        "height": 2,
+        "name": "",
+        "label": "X Window",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 2520,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ecef0ed5ee1bca84",
+        "type": "ui_text",
+        "z": "90230d3169c55c7f",
+        "group": "320510e2.086b1",
+        "order": 2,
+        "width": 2,
+        "height": 2,
+        "name": "",
+        "label": "Y Window",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 2520,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "459edf672f8e3d46",
+        "type": "ui_form",
+        "z": "90230d3169c55c7f",
+        "name": "Move to X,Y,Z",
+        "label": "Move To",
+        "group": "320510e2.086b1",
+        "order": 4,
+        "width": 6,
+        "height": 6,
+        "options": [
+            {
+                "label": "Feed",
+                "value": "feed",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "X",
+                "value": "gotoX",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Y",
+                "value": "gotoY",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Z",
+                "value": "gotoZ",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "feed": "",
+            "gotoX": "",
+            "gotoY": "",
+            "gotoZ": ""
+        },
+        "payload": "",
+        "submit": "move",
+        "cancel": "clear",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 580,
+        "y": 260,
+        "wires": [
+            [
+                "2f7e64ac5e202b31"
+            ]
+        ]
+    },
+    {
+        "id": "e57274dea0321c71",
+        "type": "ui_template",
+        "z": "90230d3169c55c7f",
+        "group": "320510e2.086b1",
+        "name": "Scrolling Command Log",
+        "order": 13,
+        "width": 12,
+        "height": 10,
+        "format": "\n<!--<pre><code id=\"shell\" class=\"language-bash bash\" ng-bind=\"msg.payload\"></code></pre>-->\n<pre><code id=\"shell\" class=\"language-bash bash\"></code></pre>\n\n<script>\n    $(document).ready(function() {\n      $('#shell').each(function(i, e) {hljs.highlightElement(e)});\n    }); \n</script>\n\n\n<script>\n(function(scope) {\n  scope.$watch('msg', function(msg) {\n    if (msg) {\n        debugger\n      $(\"#shell\").text(msg.payload);\n      $('#shell').each(function(i, e) {hljs.highlightElement(e)});\n      //$(\"#shell\").scrollTop(function() { return this.scrollHeight; });\n      $(\"#shell\").closest(\".nr-dashboard-template\").scrollTop(function() { return this.scrollHeight; });\n    }\n  });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 2030,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc05aa0ea259c0b5",
+        "type": "ui_template",
+        "z": "90230d3169c55c7f",
+        "group": "320510e2.086b1",
+        "name": "highlighter",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "format": "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/styles/default.min.css\">\n<script src=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/highlight.min.js\"></script>\n<!-- and it's easy to individually load additional languages -->\n<!-- <script src=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.0.0/build/languages/shell.min.js\"></script> -->\n<script>\nhljs.registerLanguage(\"rml\",(()=>{\"use strict\";return e=>{\nconst a=e.inherit(e.C_NUMBER_MODE,{\nbegin:\"([-+]?((\\\\.\\\\d+)|(\\\\d+)(\\\\.\\\\d*)?))|\"+e.C_NUMBER_RE\n}),n=[e.C_LINE_COMMENT_MODE,e.C_BLOCK_COMMENT_MODE,e.COMMENT(/\\(/,/\\)/),a,e.inherit(e.APOS_STRING_MODE,{\nillegal:null}),e.inherit(e.QUOTE_STRING_MODE,{illegal:null}),{className:\"name\",\nbegin:\"([Z]\\d*\\,\\d*\\,[-]?\\d*\\;)\"},{className:\"name\",\nbegin:\"([M])([0-9]+\\\\.?[0-9]?)\"},{className:\"attr\",begin:\"([VF])([0-9]+?[0-9]?)\\;\",\nend:\"(\\\\d+)\"},{className:\"attr\",begin:\"(VZOFX|VZOFY|VZOFZ)\"},{\nclassName:\"built_in\",\nbegin:\"(ATAN|ABS|ACOS|ASIN|SIN|COS|EXP|FIX|FUP|ROUND|LN|TAN)(\\\\[)\",contains:[a],\nend:\"\\\\]\"},{className:\"symbol\",variants:[{begin:\"N\",end:\"\\\\d+\",illegal:\"\\\\W\"}]}]\n;return{name:\"RML-I\",aliases:[\"prn\"],case_insensitive:!0,keywords:{\n$pattern:\"[A-Z_][A-Z0-9_.]*\",\nkeyword:\"IF DO WHILE ENDWHILE CALL ENDIF SUB ENDSUB GOTO REPEAT ENDREPEAT EQ LT GT NE GE LE OR XOR\"\n},contains:[{className:\"meta\",begin:\"%\"},{className:\"meta\",begin:\"([O])([0-9]+)\"\n}].concat(n)}}})());\n</script>\n\n\n<!--\n\nFeeds:\n([VF])([0-9]+?[0-9]?)\\;\n\nMove XYZ:\n([Z]\\d*\\,\\d*\\,[-]?\\d*\\;)\n\n-->",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 1990,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e8cece58f120422",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Command Log",
+        "func": "if(!msg.payload) return;\n\nconst MAXLINES = 200;\nlet data = context.get(\"data\") || [];\nif(msg.topic==\"clear\") {\n    data = [];\n} else {\n    const lines = msg.payload.split(\"\\n\");\n    data.push(...lines);\n    data = data.slice(-MAXLINES);\n}\ncontext.set(\"data\", data);\nmsg.payload = data.join(\"\\n\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1760,
+        "y": 240,
+        "wires": [
+            [
+                "e57274dea0321c71",
+                "b2e7fb1581a13007"
+            ]
+        ]
+    },
+    {
+        "id": "df75e886aab79862",
+        "type": "ui_button",
+        "z": "90230d3169c55c7f",
+        "name": "Clear Command Log",
+        "group": "320510e2.086b1",
+        "order": 14,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "clear command log",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "topicType": "str",
+        "x": 1540,
+        "y": 200,
+        "wires": [
+            [
+                "3e8cece58f120422"
+            ]
+        ]
+    },
+    {
+        "id": "b2e7fb1581a13007",
+        "type": "debug",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2050,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "7a9026ccec1761ce",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Move To X,Y,Z",
+        "func": "var buf1 = new Buffer(\"5A\",\"hex\");\nvar bufX = Buffer.from(JSON.stringify(msg.payload.gotoX));\nvar bufY = Buffer.from(JSON.stringify(msg.payload.gotoY));\nvar bufZ = Buffer.from(JSON.stringify(msg.payload.gotoZ));\nvar bufComma = new Buffer(\"2C\",\"hex\");\nvar bufEOL = new Buffer(\"3B0D\",\"hex\");\n\nmsg.payload = Buffer.concat([buf1,bufX,bufComma,bufY,bufComma,bufZ,bufEOL]).toString();\nmsg.routing = \"BufferReturn\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 260,
+        "wires": [
+            [
+                "337b06ff3b54579d",
+                "f9127838781d5313"
+            ]
+        ]
+    },
+    {
+        "id": "f9127838781d5313",
+        "type": "debug",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d0746cfc1139e2e2",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Coalesce",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1500,
+        "y": 240,
+        "wires": [
+            [
+                "3e8cece58f120422"
+            ]
+        ]
+    },
+    {
+        "id": "2f7e64ac5e202b31",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Check Values",
+        "func": "function between(x, min, max) {\n  return x >= min && x <= max;\n}\n\nlet error = false;\n\nif (msg.payload.feed !== null && msg.payload.feed >= 0 && msg.payload.feed <= 22){\n    msg.payload.feed = Math.round(msg.payload.feed);\n} else if (msg.payload.feed == null) {\n    msg.payload.feed = 22;\n} else {\n    error = true;\n}\nif (msg.payload.gotoX !== null && msg.payload.gotoX >= 0 && msg.payload.gotoX <= 18000){\n    msg.payload.gotoX = Math.round(msg.payload.gotoX);\n} else {\n    error = true;\n}\nif (msg.payload.gotoY !== null && msg.payload.gotoY >= 0 && msg.payload.gotoY <= 18000){\n    msg.payload.gotoY = Math.round(msg.payload.gotoY);\n} else {\n    error = true;\n}\nif (msg.payload.gotoZ !== null && msg.payload.gotoZ >= -15000 && msg.payload.gotoZ <= 15000){\n    msg.payload.gotoZ = Math.round(msg.payload.gotoZ);\n} else {\n    error = true;\n}\n\nif (error === false) {\n    return msg;\n} else {\n    return;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 260,
+        "wires": [
+            [
+                "7a9026ccec1761ce"
+            ]
+        ]
+    },
+    {
+        "id": "49c7069445f93740",
+        "type": "ui_button",
+        "z": "90230d3169c55c7f",
+        "name": "Spindle On",
+        "group": "320510e2.086b1",
+        "order": 9,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Spindle On",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "DarkKhaki",
+        "className": "",
+        "icon": "",
+        "payload": "!1;",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 710,
+        "y": 180,
+        "wires": [
+            [
+                "a08707b8f60f0c05"
+            ]
+        ]
+    },
+    {
+        "id": "b4dacf5505eaa5c2",
+        "type": "ui_button",
+        "z": "90230d3169c55c7f",
+        "name": "Spindle Off",
+        "group": "320510e2.086b1",
+        "order": 10,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Spindle Off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "DarkSeaGreen",
+        "className": "",
+        "icon": "",
+        "payload": "!0;",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 710,
+        "y": 220,
+        "wires": [
+            [
+                "a08707b8f60f0c05"
+            ]
+        ]
+    },
+    {
+        "id": "a08707b8f60f0c05",
+        "type": "function",
+        "z": "90230d3169c55c7f",
+        "name": "Convert to Buffer",
+        "func": "msg.payload = Buffer.from(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 220,
+        "wires": [
+            [
+                "337b06ff3b54579d"
+            ]
+        ]
+    },
+    {
+        "id": "3bb57e8a2b023c64",
+        "type": "ui_button",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "group": "320510e2.086b1",
+        "order": 3,
+        "width": 2,
+        "height": 2,
+        "passthru": false,
+        "label": "Get Window",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "DimGrey",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "1803d9b2b762159a"
+            ]
+        ]
+    },
+    {
+        "id": "461ee49e3ccc7fb6",
+        "type": "ui_button",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "group": "320510e2.086b1",
+        "order": 15,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Check Buffer",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "purple",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1010,
+        "y": 340,
+        "wires": [
+            [
+                "34f1b01b1dc065b1"
+            ]
+        ]
+    },
+    {
+        "id": "3d1723187352ab6b",
+        "type": "ui_button",
+        "z": "90230d3169c55c7f",
+        "name": "",
+        "group": "320510e2.086b1",
+        "order": 8,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Get Current Position",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "gold",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 240,
+        "y": 600,
+        "wires": [
+            [
+                "925791cb24344062"
+            ]
+        ]
+    },
+    {
+        "id": "86ce4724cfd3cd74",
+        "type": "ui_chart",
+        "z": "90230d3169c55c7f",
+        "name": "Buffer",
+        "group": "320510e2.086b1",
+        "order": 16,
+        "width": 12,
+        "height": 5,
+        "label": "Buffer",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "5120",
+        "removeOlder": "5",
+        "removeOlderPoints": "200",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 510,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ddb078442c41efd2",
+        "type": "ui_text",
+        "z": "90230d3169c55c7f",
+        "group": "320510e2.086b1",
+        "order": 5,
+        "width": 2,
+        "height": 2,
+        "name": "Returned X Position",
+        "label": "X",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 2480,
+        "y": 240,
+        "wires": []
+    }
+]
