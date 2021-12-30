@@ -41,7 +41,7 @@ An experimental post processor has been developed to output PNC3000 PRN files fr
 ## Early Proof of Concept Version
 The earliest most basic working version has been kept for anyone wanting a bare-bones buffer monitoring sender
 
-![alt text](https://github.com/MattTavares/senderCAMM-3/blob/main/Camm3-Sender-02.png?raw=true) 
+![alt text](https://github.com/MattTavares/senderCAMM-3/blob/main/Camm3-Sender-01.png?raw=true) 
 
 ## Installation and Use of the Proof of Concept Version
 1. Install Node-RED as per the default instructions provided at https://nodered.org/docs/getting-started/windows
