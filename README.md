@@ -25,7 +25,7 @@ An experimental post processor has been developed to output PNC3000 PRN files fr
      (other Operating Systems and configurations may work but are untested as of yet)
 
 
-## Installation and Use of the Web Interface Enabled Version 1.0
+## Installation and Use of the Web Interface Enabled Version
 1. Install Node-RED as per the default instructions provided at https://nodered.org/docs/getting-started/windows
 2. Start Node-RED and visit it in the web browser at http://localhost:1880 (assuming you installed it locally)
 3. Add the node-red-node-serialport, node-red-contrib-ui-upload, node-red-contrib-chunks-to-lines, and node-red-dashboard to your Node-RED Pallete
@@ -38,7 +38,12 @@ An experimental post processor has been developed to output PNC3000 PRN files fr
 10. Be ready to press the Emergency Stop button on the Mill if something goes wrong
 11. Single Click the Play button in the upload field to begin sending your Cut code
 
-## Installation and Use of the Proof of Concept Version 0.1
+## Early Proof of Concept Version
+The earliest most basic working version has been kept for anyone wanting a bare-bones buffer monitoring sender
+
+![alt text](https://github.com/MattTavares/senderCAMM-3/blob/main/Camm3-Sender-02.png?raw=true) 
+
+## Installation and Use of the Proof of Concept Version
 1. Install Node-RED as per the default instructions provided at https://nodered.org/docs/getting-started/windows
 2. Add the node-red-node-serialport and node-red-contrib-simple-message-queue to your Node-RED Pallete
 3. Import the Camm3-Sender-V0.1.json flow into your running instance of Node-RED
