@@ -9,7 +9,7 @@ senderCAMM-3 allows you to run a stock PNC-3000 from Windows 10 with a modern us
 ## How it Works
 The CAMM-3 PNC-3000 has a 5120 KB circular command buffer size that will quickly run out and wrap over if you deluge it with commands at the full 9600 baud rate. To avoid this, senderCAMM-3 appends ESC.B (1B2E42) to every command sent to the Mill over the serial port which returns the remaining buffer. When the buffer starts getting low, senderCAMM-3 simply stops sending new commands until the buffer has room again.
 
-![alt text](https://github.com/MattTavares/senderCAMM-3/blob/main/Camm3-Sender-02.png?raw=true)
+![alt text](https://github.com/MattTavares/senderCAMM-3/blob/main/Camm3-Sender-03.png?raw=true)
 
 ## Post Processor
 An experimental post processor has been developed to output PNC3000 PRN files from HSMWorks/Fusion 360 and can be found in the Post Processor folder. Use it at your own risk. In your CAM setup, you must ensure your X,Y origin is below and to the left of ALL move operations in your output PRN file. If any Move (Z) commands are sent to the mill with a negative X or Y value it will error and not cut additional commands sent. Z axis does accept both positive and negative numbers.
